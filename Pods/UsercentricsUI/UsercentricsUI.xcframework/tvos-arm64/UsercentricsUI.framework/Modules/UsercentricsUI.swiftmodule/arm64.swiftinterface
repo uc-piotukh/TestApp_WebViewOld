@@ -1,0 +1,43 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)
+// swift-module-flags: -target arm64-apple-tvos12.1 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name UsercentricsUI
+import Foundation
+import Swift
+import UIKit
+import Usercentrics
+import _Concurrency
+extension Swift.Array where Element == UIKit.NSLayoutConstraint {
+  public func active()
+}
+public class UsercentricsBanner {
+  public init(bannerSettings: UsercentricsUI.BannerSettings? = nil)
+  public func showFirstLayer(hostView: UIKit.UIViewController, completionHandler: @escaping (UsercentricsUI.UsercentricsConsentUserResponse) -> Swift.Void)
+  public func showFirstLayer(completionHandler: @escaping (UsercentricsUI.UsercentricsConsentUserResponse) -> Swift.Void)
+  public func showSecondLayer(hostView: UIKit.UIViewController, completionHandler: @escaping (UsercentricsUI.UsercentricsConsentUserResponse) -> Swift.Void)
+  public func showSecondLayer(completionHandler: @escaping (UsercentricsUI.UsercentricsConsentUserResponse) -> Swift.Void)
+  @objc deinit
+}
+public struct UsercentricsConsentUserResponse : Swift.Equatable {
+  public let consents: [Usercentrics.UsercentricsServiceConsent]
+  public let controllerId: Swift.String
+  public let userInteraction: UsercentricsUI.UsercentricsUserInteraction
+  public init(consents: [Usercentrics.UsercentricsServiceConsent], controllerId: Swift.String, userInteraction: UsercentricsUI.UsercentricsUserInteraction)
+  public static func == (a: UsercentricsUI.UsercentricsConsentUserResponse, b: UsercentricsUI.UsercentricsConsentUserResponse) -> Swift.Bool
+}
+public enum UsercentricsUserInteraction {
+  case acceptAll
+  case denyAll
+  case granular
+  case noInteraction
+  public static func == (a: UsercentricsUI.UsercentricsUserInteraction, b: UsercentricsUI.UsercentricsUserInteraction) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct BannerSettings {
+  public let logo: UIKit.UIImage
+  public init(logo: UIKit.UIImage)
+}
+extension UsercentricsUI.UsercentricsUserInteraction : Swift.Equatable {}
+extension UsercentricsUI.UsercentricsUserInteraction : Swift.Hashable {}

@@ -1,0 +1,8 @@
+framework module Usercentrics {
+    umbrella header "Usercentrics.h"
+
+    export *
+    module * { export * }
+
+    use Foundation
+}

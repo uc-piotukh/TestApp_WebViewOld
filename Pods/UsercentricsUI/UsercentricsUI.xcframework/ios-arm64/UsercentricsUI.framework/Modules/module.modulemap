@@ -1,0 +1,4 @@
+framework module UsercentricsUI {
+  header "UsercentricsUI-Swift.h"
+  requires objc
+}

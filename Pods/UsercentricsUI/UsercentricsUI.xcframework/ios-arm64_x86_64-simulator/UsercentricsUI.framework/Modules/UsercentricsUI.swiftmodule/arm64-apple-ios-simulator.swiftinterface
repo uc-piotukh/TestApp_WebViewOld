@@ -1,0 +1,190 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)
+// swift-module-flags: -target arm64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name UsercentricsUI
+import Foundation
+import Swift
+import UIKit
+import Usercentrics
+import _Concurrency
+public struct BannerSettings {
+  public var generalStyleSettings: UsercentricsUI.GeneralStyleSettings?
+  public var firstLayerStyleSettings: UsercentricsUI.FirstLayerStyleSettings?
+  public var secondLayerStyleSettings: UsercentricsUI.SecondLayerStyleSettings?
+  public var variantName: Swift.String?
+  public init(generalStyleSettings: UsercentricsUI.GeneralStyleSettings? = nil, firstLayerStyleSettings: UsercentricsUI.FirstLayerStyleSettings? = nil, secondLayerStyleSettings: UsercentricsUI.SecondLayerStyleSettings? = nil, variantName: Swift.String? = nil)
+}
+public struct BannerFont {
+  public let regularFont: UIKit.UIFont
+  public let boldFont: UIKit.UIFont
+  public init(regularFont: UIKit.UIFont, boldFont: UIKit.UIFont)
+}
+public enum LegalLinksSettings {
+  case firstLayerOnly
+  case secondLayerOnly
+  case both
+  case hidden
+  public static func == (a: UsercentricsUI.LegalLinksSettings, b: UsercentricsUI.LegalLinksSettings) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct SecondLayerStyleSettings {
+  public let buttonLayout: UsercentricsUI.ButtonLayout?
+  public let showCloseButton: Swift.Bool?
+  public init(buttonLayout: UsercentricsUI.ButtonLayout? = nil, showCloseButton: Swift.Bool? = nil)
+}
+public enum ButtonLayout {
+  case column(buttons: [UsercentricsUI.ButtonSettings] = [])
+  case row(buttons: [UsercentricsUI.ButtonSettings] = [])
+  case grid(buttons: [[UsercentricsUI.ButtonSettings]] = [])
+}
+public struct ButtonSettings {
+  public let type: UsercentricsUI.ButtonType
+  public let font: UIKit.UIFont?
+  public let textColor: UIKit.UIColor?
+  public let backgroundColor: UIKit.UIColor?
+  public let cornerRadius: CoreGraphics.CGFloat?
+  public init(type: UsercentricsUI.ButtonType, font: UIKit.UIFont? = nil, textColor: UIKit.UIColor? = nil, backgroundColor: UIKit.UIColor? = nil, cornerRadius: CoreGraphics.CGFloat? = nil)
+}
+public enum ButtonType {
+  case acceptAll
+  case denyAll
+  case more
+  case save
+  public static func == (a: UsercentricsUI.ButtonType, b: UsercentricsUI.ButtonType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Swift.Array where Element == UIKit.NSLayoutConstraint {
+  public func active()
+}
+public struct GeneralStyleSettings {
+  public var font: UsercentricsUI.BannerFont?
+  public var logo: UIKit.UIImage?
+  public var links: UsercentricsUI.LegalLinksSettings?
+  public var textColor: UIKit.UIColor?
+  public var layerBackgroundColor: UIKit.UIColor?
+  public var layerBackgroundSecondaryColor: UIKit.UIColor?
+  public var linkColor: UIKit.UIColor?
+  public var tabColor: UIKit.UIColor?
+  public var bordersColor: UIKit.UIColor?
+  public var toggleStyleSettings: UsercentricsUI.ToggleStyleSettings?
+  public init(font: UsercentricsUI.BannerFont? = nil, logo: UIKit.UIImage? = nil, links: UsercentricsUI.LegalLinksSettings? = nil, textColor: UIKit.UIColor? = nil, layerBackgroundColor: UIKit.UIColor? = nil, layerBackgroundSecondaryColor: UIKit.UIColor? = nil, linkColor: UIKit.UIColor? = nil, tabColor: UIKit.UIColor? = nil, bordersColor: UIKit.UIColor? = nil, toggleStyleSettings: UsercentricsUI.ToggleStyleSettings? = nil)
+}
+public struct ToggleStyleSettings {
+  public var activeBackgroundColor: UIKit.UIColor?
+  public var inactiveBackgroundColor: UIKit.UIColor?
+  public var disabledBackgroundColor: UIKit.UIColor?
+  public var activeThumbColor: UIKit.UIColor?
+  public var inactiveThumbColor: UIKit.UIColor?
+  public var disabledThumbColor: UIKit.UIColor?
+  public init(activeBackgroundColor: UIKit.UIColor? = nil, inactiveBackgroundColor: UIKit.UIColor? = nil, disabledBackgroundColor: UIKit.UIColor? = nil, activeThumbColor: UIKit.UIColor? = nil, inactiveThumbColor: UIKit.UIColor? = nil, disabledThumbColor: UIKit.UIColor? = nil)
+}
+public class UsercentricsBanner {
+  public init(bannerSettings: UsercentricsUI.BannerSettings? = nil)
+  @available(*, deprecated, message: "Use showFirstLayer(hostView,completionHandler) the layout is received in the BannerSettings.FirstLayerStyleSettings")
+  public func showFirstLayer(hostView: UIKit.UIViewController, layout: UsercentricsUI.UsercentricsLayout, completionHandler: @escaping (UsercentricsUI.UsercentricsConsentUserResponse) -> Swift.Void)
+  public func showFirstLayer(hostView: UIKit.UIViewController, completionHandler: @escaping (UsercentricsUI.UsercentricsConsentUserResponse) -> Swift.Void)
+  @available(*, deprecated, message: "Use showFirstLayer(completionHandler) the layout is received in the BannerSettings.FirstLayerStyleSettings")
+  public func showFirstLayer(layout: UsercentricsUI.UsercentricsLayout, completionHandler: @escaping (UsercentricsUI.UsercentricsConsentUserResponse) -> Swift.Void)
+  public func showFirstLayer(completionHandler: @escaping (UsercentricsUI.UsercentricsConsentUserResponse) -> Swift.Void)
+  public func showSecondLayer(hostView: UIKit.UIViewController, completionHandler: @escaping (UsercentricsUI.UsercentricsConsentUserResponse) -> Swift.Void)
+  public func showSecondLayer(completionHandler: @escaping (UsercentricsUI.UsercentricsConsentUserResponse) -> Swift.Void)
+  @objc deinit
+}
+public enum HeaderImageSettings {
+  case logo(settings: UsercentricsUI.LogoSettings)
+  case extended(image: UIKit.UIImage? = nil)
+  case hidden
+}
+public struct LogoSettings {
+  public let image: UIKit.UIImage?
+  public let url: Foundation.URL?
+  public let position: UsercentricsUI.SectionPosition
+  public let height: CoreGraphics.CGFloat
+  public init(image: UIKit.UIImage? = nil, url: Foundation.URL? = nil, position: UsercentricsUI.SectionPosition? = nil, height: CoreGraphics.CGFloat? = nil)
+}
+public enum PopupPosition {
+  case bottom
+  case center
+  public static func == (a: UsercentricsUI.PopupPosition, b: UsercentricsUI.PopupPosition) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum UsercentricsLayout : Swift.Equatable {
+  case sheet
+  case popup(position: UsercentricsUI.PopupPosition)
+  case full
+  public static func == (a: UsercentricsUI.UsercentricsLayout, b: UsercentricsUI.UsercentricsLayout) -> Swift.Bool
+}
+public struct TitleSettings : Swift.Equatable {
+  public let font: UIKit.UIFont?
+  public let textColor: UIKit.UIColor?
+  public let textAlignment: UIKit.NSTextAlignment?
+  public init(font: UIKit.UIFont? = nil, textColor: UIKit.UIColor? = nil, textAlignment: UIKit.NSTextAlignment? = nil)
+  public static func == (a: UsercentricsUI.TitleSettings, b: UsercentricsUI.TitleSettings) -> Swift.Bool
+}
+public struct MessageSettings : Swift.Equatable {
+  public let font: UIKit.UIFont?
+  public let textColor: UIKit.UIColor?
+  public let textAlignment: UIKit.NSTextAlignment?
+  public let linkTextColor: UIKit.UIColor?
+  public let linkTextUnderline: Swift.Bool
+  public init(font: UIKit.UIFont? = nil, textColor: UIKit.UIColor? = nil, textAlignment: UIKit.NSTextAlignment? = nil, linkTextColor: UIKit.UIColor? = nil, linkTextUnderline: Swift.Bool = true)
+  public static func == (a: UsercentricsUI.MessageSettings, b: UsercentricsUI.MessageSettings) -> Swift.Bool
+}
+public enum SectionPosition {
+  case left
+  case center
+  case right
+  public static func == (a: UsercentricsUI.SectionPosition, b: UsercentricsUI.SectionPosition) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct FirstLayerStyleSettings {
+  public let layout: UsercentricsUI.UsercentricsLayout?
+  public let headerImage: UsercentricsUI.HeaderImageSettings?
+  public let title: UsercentricsUI.TitleSettings?
+  public let message: UsercentricsUI.MessageSettings?
+  public let buttonLayout: UsercentricsUI.ButtonLayout?
+  public let backgroundColor: UIKit.UIColor?
+  public let cornerRadius: CoreGraphics.CGFloat?
+  public let overlayColor: UIKit.UIColor?
+  public init(layout: UsercentricsUI.UsercentricsLayout? = nil)
+  public init(layout: UsercentricsUI.UsercentricsLayout? = nil, headerImage: UsercentricsUI.HeaderImageSettings? = nil, title: UsercentricsUI.TitleSettings? = nil, message: UsercentricsUI.MessageSettings? = nil, buttonLayout: UsercentricsUI.ButtonLayout? = nil, backgroundColor: UIKit.UIColor? = nil, cornerRadius: CoreGraphics.CGFloat? = nil, overlayColor: UIKit.UIColor? = nil)
+}
+public struct UsercentricsConsentUserResponse : Swift.Equatable {
+  public let consents: [Usercentrics.UsercentricsServiceConsent]
+  public let controllerId: Swift.String
+  public let userInteraction: UsercentricsUI.UsercentricsUserInteraction
+  public init(consents: [Usercentrics.UsercentricsServiceConsent], controllerId: Swift.String, userInteraction: UsercentricsUI.UsercentricsUserInteraction)
+  public static func == (a: UsercentricsUI.UsercentricsConsentUserResponse, b: UsercentricsUI.UsercentricsConsentUserResponse) -> Swift.Bool
+}
+public enum UsercentricsUserInteraction {
+  case acceptAll
+  case denyAll
+  case granular
+  case noInteraction
+  public static func == (a: UsercentricsUI.UsercentricsUserInteraction, b: UsercentricsUI.UsercentricsUserInteraction) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension UsercentricsUI.LegalLinksSettings : Swift.Equatable {}
+extension UsercentricsUI.LegalLinksSettings : Swift.Hashable {}
+extension UsercentricsUI.ButtonType : Swift.Equatable {}
+extension UsercentricsUI.ButtonType : Swift.Hashable {}
+extension UsercentricsUI.PopupPosition : Swift.Equatable {}
+extension UsercentricsUI.PopupPosition : Swift.Hashable {}
+extension UsercentricsUI.SectionPosition : Swift.Equatable {}
+extension UsercentricsUI.SectionPosition : Swift.Hashable {}
+extension UsercentricsUI.UsercentricsUserInteraction : Swift.Equatable {}
+extension UsercentricsUI.UsercentricsUserInteraction : Swift.Hashable {}
